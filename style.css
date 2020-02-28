@@ -554,7 +554,7 @@ body{
 	}
 }
 
-@media(min-width: 850px){
+@media(max-width: 850px){
 	#box6-more{
 		width: 100%;
 		margin: 0;
@@ -578,9 +578,21 @@ body{
 }
 
 
-
 @media(max-width: 770px){
 	#box2-title b{
-		
+		display: none;
 	}
 }
+
+
+@media(max-width: 640px){
+	#box1-title b{
+		display: none;
+	}
+	#box2-title img{
+		display: none;
+	}
+}
+
+
+
