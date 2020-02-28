@@ -138,6 +138,7 @@ body{
 }
 
 
+
 #box2-title-btn{
 	width: 150px;
 	left: 0;
@@ -573,5 +574,13 @@ body{
 	}
 	.middle{
 		width: 500px;
+	}
+}
+
+
+
+@media(max-width: 770px){
+	#box2-title b{
+		
 	}
 }
