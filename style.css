@@ -38,8 +38,60 @@ body{
 }
 
 
+.color{
+	color: #F29C11;
+	text-shadow: 1px 1px 2px black, 0 0 1em red;
+}
+
+#back-btn1{
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 50px;
+	right: 50px;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 50%;
+	border: solid 3px #F24E11;
+}
+
+#back-btn2{
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 2px;
+	right: 50px;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 50%;
+	border: solid 3px #F24E11;
+}
+
+#back-btn3{
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 2px;
+	right: 50px;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 50%;
+	border: solid 3px #F24E11;
+}
 
 
+.triangle-right{
+	background-color: #F24E11;
+	height: 60px;
+	width: 50px;
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	transform: translate(-50%, -50%);
+	-webkit-clip-path: polygon(
+		0% 0%,
+		0% 100%,
+		100% 50%
+		);
+
+}
 
 
 
@@ -270,7 +322,7 @@ body{
 	height: 100%;
 	width: 100%;
 	z-index: 999;
-	min-width: 630px;
+	pointer-events: none;
 }
 
 #ramka .line{
