@@ -1,0 +1,138 @@
+//Header
+(function($) {
+
+    var init = function() {
+		animateDesktopDropdowns();
+        animateMenu();
+        dropAnimation();
+        initSSO();
+        loadHeader();
+    };
+
+    var loadHeader = function(){
+		$('.atvi-header-container').show();
+        console.log('header loaded');
+    };
+
+	/* Animate Desktop Dropdowns */
+    var animateDesktopDropdowns = function(){
+        function toggleNavItemDisplay(){
+            $(this).toggleClass('isVisible');
+        }
+
+        $('.header-item')
+        .mouseover(function(){
+			$(this).addClass('isVisible');
+        })
+        .mouseout(function(){
+			$(this).removeClass('isVisible');
+        });
+    }
+
+    /* Animate burger menu icon for mobile header */
+    var animateMenu = function() {
+
+        $(".atvi-header-container .mobile-header .mobile-menu").click(function(){
+			$(this).toggleClass("changeMenu");
+            var path = $(this).next();
+            $(this).next().toggleClass("activate");
+        });
+    };
+
+	/* Controls drop tab animation for mobile tabs */
+    var dropAnimation = function() {
+
+        $(".atvi-header-container .mobile-header .mobile-navigation .mobile-dropdown .dropdown-header").click(function(){
+
+            if ( $(this).is('.selected') ) {
+                $(this).toggleClass("selected");
+                $(this).parent().toggleClass("selected");
+
+                $(this).next().slideUp(400);
+            } else {
+                closeOtherOpenedTabs();
+                $(this).toggleClass("selected");
+                $(this).parent().toggleClass("selected");
+                $(this).next().slideDown(400);
+            }
+        });
+    };
+
+    /* If any of the mobile header tabs are open when you try to open a new tab, close them */
+    var closeOtherOpenedTabs = function() {
+        var gamesPath = $(".atvi-header-container .mobile-header .mobile-navigation #Games");
+        var aboutPath = $(".atvi-header-container .mobile-header .mobile-navigation #About");
+        var careersPath = $(".atvi-header-container .mobile-header .mobile-navigation #Careers");
+        var supportPath = $(".atvi-header-container .mobile-header .mobile-navigation #Support");
+
+        if ( gamesPath.hasClass("selected") ) {
+            gamesPath.removeClass("selected");
+            gamesPath.children(".dropdown-header").removeClass("selected");
+            gamesPath.children(".dropdown-content").slideUp(100);
+        }
+
+        if (aboutPath.hasClass("selected")) {
+
+            aboutPath.removeClass("selected");
+            aboutPath.children(".dropdown-header").removeClass("selected");
+            aboutPath.children(".dropdown-content").slideUp(100);
+
+        }
+
+        if (careersPath.hasClass("selected")) {
+            careersPath.removeClass("selected");
+            careersPath.children(".dropdown-header").removeClass("selected");
+            careersPath.children(".dropdown-content").slideUp(100);
+
+        }
+
+        if (supportPath.hasClass("selected")) {
+            supportPath.removeClass("selected");
+            supportPath.children(".dropdown-header").removeClass("selected");
+            supportPath.children(".dropdown-content").slideUp(100);
+
+        }
+    };
+
+	/* Handles profile logins */
+    var initSSO = function() {
+        var sb = window.ssobar;
+        if(sb) {
+            sb.onAuthentication(function() {
+                sb.onReady(updateAccountLinksFromSso);
+            });
+        }
+
+    };
+
+    var updateAccountLinksFromSso = function() {
+        var sso = $(".SSO-BAR");
+        var $body = $("body");
+        var mobilePath = $(".atvi-header-container .mobile-header .mobile-navigation");
+
+        try {
+            console.log('trying');
+
+            console.log(window.ssobar.user.isLoggedIn);
+
+            if(window.ssobar.user.isLoggedIn) {
+                console.log('adding class');
+                $body.addClass("sso-logged-in");
+                mobilePath.addClass("sso-logged-in");
+            }
+        } catch(e) {}
+        setTimeout(function() {
+            $body.addClass("sso-auth-known"); 
+        }, 20);
+
+
+        $(".login-link").attr("href", sso.find("#login-solo").attr("href"));
+        $(".signup-link").attr("href", sso.find("#signup-solo").attr("href"));
+        $(".profile-link").attr("href", sso.find("#sso-account-action-profile").attr("href"));
+        $(".logout-link").attr("href", sso.find("#sso-account-action-logout").attr("href"));
+
+    };
+
+	$(init);
+
+})(jQuery);

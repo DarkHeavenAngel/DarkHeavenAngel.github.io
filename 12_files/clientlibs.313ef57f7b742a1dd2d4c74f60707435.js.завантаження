@@ -1,0 +1,27 @@
+
+var ATVI = ATVI || {};
+
+(function($, ATVI) {
+
+	var ld = ATVI.localeDetector,
+        region = undefined;
+
+    ATVI.localeDetector.getRegion(function(d) {
+        region = d;
+    });
+
+
+    var init = function() {
+		if (region == 'ca') addPrivacyLink();
+    };
+
+    var addPrivacyLink = function() {
+        var anchor = $('<a/>', { 'class': 'footer-ext-link', 'href':'https://support.activision.com/privacyrequest?st=ca', 'text': 'Do Not Sell My Personal Information', 'target': '_blank' }),
+            item = $('<li/>');
+        item.append(anchor);
+        $('.footer-links-container').last().find('.footer-links-list').append(item);
+    };
+
+    $(init);
+
+})(jQuery, ATVI);
