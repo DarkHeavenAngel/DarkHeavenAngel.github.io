@@ -747,8 +747,24 @@ a.btn-box5 {
 
 
 
+#box6-title{
+	position: absolute;
+	top: 40px;
+	left: 200px;
+	right: 200px;
+	text-align: left;
+	text-shadow: 1px 1px 2px black, 0 0 1em darkred;
+	font-size: 20px;
+	color: #aaa;
+	font-family: font7;
+	z-index: 1000;
+}
 
-
+#box3-title a{
+	text-decoration: none;
+	color: #974;
+	text-shadow: 1px 1px 2px black,0 0 1em white;
+}
 
 
 
