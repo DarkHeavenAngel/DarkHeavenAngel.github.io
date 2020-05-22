@@ -448,7 +448,9 @@ body{
 
 
 
-
+#container{
+	text-align: left;
+}
 
 
 
@@ -642,6 +644,11 @@ a.button-right-table{
   }
 
 
+  #btn-cont{
+  	position: relative;
+  	text-align: center;
+  }
+
 
 
 #back-btn4{
@@ -752,41 +759,51 @@ a.btn-box5 {
 	top: 40px;
 	left: 200px;
 	right: 200px;
-	text-align: left;
 	text-shadow: 1px 1px 2px black, 0 0 1em darkred;
 	color: #aaa;
-	z-index: 1000;
+	z-index: 100;
+	font-family: font3;
+}
+
+#box6-title i{
+	color: #e4971e;
+	text-shadow: 1px 1px 2px black, 0 0 1em orange;
 }
 
 
 .somebody{
 	top: 0;
 	position: absolute;
-	left: 35%;
+	left: 30%;
 	font-size: 35px;
 	font-family: font3;
+	color: #e4971e;
 }
 
 
 #name{
-	top: 70%;
+	top: 100px;
 	position: absolute;
 	left: 40px;
 	font-size: 25px;
 	font-family: font3;
+	color: #e4971e;
+
 }
 #name2{
-	top: 70%;
+	top: 320px;
 	position: absolute;
-	right: 300px;
+	right: 250px;
 	font-size: 25px;
 	font-family: font3;
+	color: #e4971e;
+
 }
 
 
 
-#text{
-	top: 120%;
+#text3{
+	top: 150px;
 	position: absolute;
 	left: 20px;
 	max-width: 500px;
@@ -795,7 +812,7 @@ a.btn-box5 {
 }
 
 #text2{
-	top: 150%;
+	top: 370px;
 	position: absolute;
 	right: 20px;
 	max-width: 500px;
@@ -816,8 +833,8 @@ a.btn-box5 {
 
 
 @media(max-width:2200px;){
-	#text-elements .name{
-		font-size: 45px;
+	.tmb-submenu-btn{
+		font-size: 15px;
 	}
 	#text-elements .text{
 		font-size: 30px;
