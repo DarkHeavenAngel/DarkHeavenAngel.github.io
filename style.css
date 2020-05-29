@@ -572,7 +572,7 @@ body{
 	font-size: 25px;
 	color: #aaa;
 	font-family: font3;
-	z-index: 1000;
+	z-index: 100;
 }
 
 .cell-text{
